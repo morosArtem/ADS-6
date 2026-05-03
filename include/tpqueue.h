@@ -16,10 +16,9 @@ class TPQueue {
   };
 
   Node* head;
-  int count;
 
  public:
-  TPQueue() : head(nullptr), count(0) {}
+  TPQueue() : head(nullptr) {}
 
   ~TPQueue() {
     while (!isEmpty()) {
@@ -38,13 +37,12 @@ class TPQueue {
     } else {
       Node* current = head;
       while (current->next != nullptr &&
-             current->next->data.prior >= item.prior) 
+             current->next->data.prior >= item.prior) {
         current = current->next;
       }
       newNode->next = current->next;
       current->next = newNode;
     }
-    count++;
   }
 
   T pop() {
@@ -55,7 +53,6 @@ class TPQueue {
     T result = head->data;
     head = head->next;
     delete temp;
-    count--;
     return result;
   }
 
@@ -68,10 +65,6 @@ class TPQueue {
 
   bool isEmpty() const {
     return head == nullptr;
-  }
-
-  int size() const {
-    return count;
   }
 };
 
