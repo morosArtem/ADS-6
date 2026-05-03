@@ -1,6 +1,6 @@
 // Copyright 2022 NNTU-CS
-#ifndef TPQUEUE_H_
-#define TPQUEUE_H_
+#ifndef INCLUDE_TPQUEUE_H_
+#define INCLUDE_TPQUEUE_H_
 
 struct Sym {
   char ch;
@@ -37,7 +37,8 @@ class TPQueue {
       head = newNode;
     } else {
       Node* current = head;
-      while (current->next != nullptr && current->next->data.prior >= item.prior) {
+      while (current->next != nullptr &&
+             current->next->data.prior >= item.prior) 
         current = current->next;
       }
       newNode->next = current->next;
@@ -74,4 +75,4 @@ class TPQueue {
   }
 };
 
-#endif  // TPQUEUE_H_
+#endif  // INCLUDE_TPQUEUE_H_
